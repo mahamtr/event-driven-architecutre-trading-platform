@@ -1,3 +1,6 @@
+using EventDrivenTradingPlatform.Handlers.Order;
+using EventDrivenTradingPlatform.Handlers.Queries;
+using EventDrivenTradingPlatform.Handlers.Trade;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +21,20 @@ namespace EventDrivenTradingPlatform.Controllers
             await _mediator.Publish(new OrderPlacedEvent(orderId, request.TraderId, request.OrderType, request.Quantity, request.Price));
 
             return Ok(new { OrderId = orderId, Message = "Order placed successfully." });
+        }
+
+        [HttpGet("orders/{traderId}")]
+        public async Task<IActionResult> GetOrders(string traderId, CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new GetOrdersQuery(traderId), cancellationToken);
+            return Ok(result);
+        }
+
+        [HttpGet("trades/{traderId}")]
+        public async Task<IActionResult> GetTrades(string traderId, CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new GetTradesQuery(traderId), cancellationToken);
+            return Ok(result);
         }
     }
 

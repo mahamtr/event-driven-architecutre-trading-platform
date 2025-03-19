@@ -1,6 +1,5 @@
 using MongoDB.Driver;
 using MediatR;
-using EventDrivenTradingPlatform;
 using EventDrivenTradingPlatform.Handlers.Order;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EventDrivenTradingPlatform")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef3d8446b3898f04112f106dfa6abb8cd6172196")]
 [assembly: System.Reflection.AssemblyProductAttribute("EventDrivenTradingPlatform")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EventDrivenTradingPlatform")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
