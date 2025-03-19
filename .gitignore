@@ -1,0 +1,38 @@
+# Ignore build output and intermediate files
+bin/
+obj/
+
+# Rider IDE specific files
+.idea/
+*.iml
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Application settings
+appsettings.Development.json
+appsettings.json
+
+# Generated files
+*.GeneratedMSBuildEditorConfig.editorconfig
+*.AssemblyInfo.cs
+*.FileListAbsolute.txt
+*.nuget.g.props
+*.nuget.g.targets
+*.dgspec.json
+*.nuget.cache
+*.packagespec.json
+*.restore.info
+
+# HTTP request files
+*.http
