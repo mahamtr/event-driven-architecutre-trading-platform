@@ -1,0 +1,89 @@
+<mxfile>
+  <diagram name="Event-Driven Architecture Workflow">
+    <mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Controllers -->
+        <mxCell id="controllers" value="Controllers" style="swimlane" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="200" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="ordersController" value="OrdersController" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="controllers">
+          <mxGeometry x="50" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Handlers -->
+        <mxCell id="handlers" value="Handlers" style="swimlane" vertex="1" parent="1">
+          <mxGeometry x="250" y="20" width="300" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="commands" value="Commands" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="handlers">
+          <mxGeometry x="50" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="queries" value="Queries" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="handlers">
+          <mxGeometry x="50" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="getOrdersQuery" value="GetOrdersQuery" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="queries">
+          <mxGeometry x="50" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="getTradesQuery" value="GetTradesQuery" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="queries">
+          <mxGeometry x="50" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Events -->
+        <mxCell id="events" value="Events" style="swimlane" vertex="1" parent="1">
+          <mxGeometry x="600" y="20" width="200" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="orderPlacedEvent" value="OrderPlacedEvent" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="events">
+          <mxGeometry x="50" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="orderProcessedEvent" value="OrderProcessedEvent" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="events">
+          <mxGeometry x="50" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="orderMatchedEvent" value="OrderMatchedEvent" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="events">
+          <mxGeometry x="50" y="190" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tradeExecutedEvent" value="TradeExecutedEvent" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="events">
+          <mxGeometry x="50" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tradeNotificationEvent" value="TradeNotificationEvent" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="events">
+          <mxGeometry x="50" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Database -->
+        <mxCell id="database" value="Database" style="swimlane" vertex="1" parent="1">
+          <mxGeometry x="850" y="20" width="200" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="ordersDB" value="OrdersDB" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="database">
+          <mxGeometry x="50" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Connections -->
+        <mxCell id="controllerToCommand" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ordersController" target="commands">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="commandToOrderPlacedEvent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="commands" target="orderPlacedEvent">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="commandToOrderProcessedEvent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="commands" target="orderProcessedEvent">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="commandToOrderMatchedEvent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="commands" target="orderMatchedEvent">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="commandToTradeExecutedEvent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="commands" target="tradeExecutedEvent">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="commandToTradeNotificationEvent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="commands" target="tradeNotificationEvent">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eventToDB" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="tradeExecutedEvent" target="ordersDB">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="queryToDB" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="queries" target="ordersDB">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
